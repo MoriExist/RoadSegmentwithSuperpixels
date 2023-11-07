@@ -57,7 +57,48 @@ subgraph 超級像素類別
 Net --> Output(輸出)
 end
 ```
+# GoogleNet
+## Inception Module
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': 'true', 
+      'background':'#202020',
+      'primaryColor': '#233B48',
+      'primaryTextColor': '#fff',
+      'primaryBorderColor': '#ADC6CD',
+      'lineColor': '#ADC6CD',
+      'secondaryColor': '#ADC6CD',
+      'tertiaryColor': '#1C1C1C'
+    }
+  }
+}%%
+graph BT
+%% Colors %%
+classDef PL fill:#2274A4, stroke:#000, srroke-width:2px, color:#fff
+classDef Conv_1  fill:#A5A5A5, stroke:#000, srroke-width:2px, color:#000
+classDef Conv_3 fill:#FBBE07, stroke:#000, srroke-width:2px, color:#000
+classDef Conv_5 fill:#CB712E, stroke:#000, srroke-width:2px, color:#fff
+classDef MaxP_3 fill:#E93F6E, stroke:#000, srroke-width:2px, color:#fff
+classDef FC fill:#32946E, stroke:#000, srroke-width:2px, color:#fff
 
+PL(PreviousLayer)
+Conv#A_1(1 x 1 Convolutions)
+Conv#C_1(1 x 1 Convolutions)
+Conv#D_1(1 x 1 Convolutions)
+Conv#B_1(1 x 1 Convolutions)
+Conv#3(3 x 3 Convolutions):::Conv_3
+Conv#5(5 x 5 Convolutions):::Conv_5
+MaxP#3(3 x 3 Max Pooling):::MaxP_3
+FC(Filter Concatenation)
+
+PL --> Conv#A_1 --> FC
+PL --> Conv#B_1 --> Conv#3 --> FC
+PL --> Conv#C_1 --> Conv#5 --> FC
+PL --> MaxP#3 --> Conv#D_1 --> FC
+```
 
 
 ```mermaid
