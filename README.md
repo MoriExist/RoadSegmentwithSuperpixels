@@ -25,9 +25,60 @@
 
 
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': 'true', 
+      'background':'#202020',
+      'primaryColor': '#233B48',
+      'primaryTextColor': '#fff',
+      'primaryBorderColor': '#ADC6CD',
+      'lineColor': '#ADC6CD',
+      'secondaryColor': '#ADC6CD',
+      'tertiaryColor': '#1C1C1C'
+    }
+  }
+}%%
+graph LR
+%% Colors %%
+classDef pink fill:#f4acb7, stroke:#000, srroke-width:2px, color:#fff
+classDef red fill:#e63946, stroke:#000, srroke-width:2px, color:#fff
+classDef orange fill:#fe7f2d, stroke:#000, srroke-width:2px, color:#000
+classDef green fill:#2a9d8f, stroke:#000, srroke-width:2px, color:#fff
+classDef blue fill:#1d3557, stroke:#000, srroke-width:2px, color:#fff
+classDef C1 fill:#211B1F, stroke:#A5A5A5, srroke-width:2px, color:#fff
+classDef C2 fill:#FAFAFA, stroke:#000, srroke-width:2px, color:#000
+classDef C3 fill:#FBBE07, stroke:#000, srroke-width:2px, color:#000
+classDef C4 fill:#E93F6E, stroke:#000, srroke-width:2px, color:#fff
+classDef C5 fill:#CB712E, stroke:#000, srroke-width:2px, color:#fff
+classDef C6 fill:#A5A5A5, stroke:#000, srroke-width:2px, color:#000
+classDef C7 fill:#32946E, stroke:#000, srroke-width:2px, color:#fff
+classDef C8 fill:#2274A4, stroke:#000, srroke-width:2px, color:#fff
+    Folder("D:.")--> CLASS[(CLASS)]
+    Folder --> ClassData[(ClassData)]
+    Folder --> ColorAnalyze(ColorAnalyze)
+    Folder --> Functions(Functions)
+    Folder --> n(n)
+    Folder --> SceneData[(SceneData)]
+	subgraph Road Scene Superpixels
+    ClassData --- ClassData1[[#1_City]]
+    ClassData --- ClassData2[[#2_Suburbs]]
+    ClassData --- ClassData3[[#3_Limited-Access Road]]
+    end
+	subgraph Orignal Road Scene Image
+		SceneData --- SceneData1[[#1_City]]
+    SceneData --- SceneData2[[#2_Suburbs]]
+    SceneData --- SceneData3[[#3_Limited-Access Road]]
+	end
+	subgraph Classify All of Superpixels 
+		CLASS --- CLASS1[[C1]]:::C1
+		CLASS --- CLASS2[[C2]]:::C2
+		CLASS --- CLASS3[[C3]]:::C3
+		CLASS --- CLASS4[[C4]]:::C4
+		CLASS --- CLASS5[[C5]]:::C5
+		CLASS --- CLASS6[[C6]]:::C6
+		CLASS --- CLASS7[[C7]]:::C7
+	  CLASS --- CLASS8[[C8]]:::C8
+	end
 ```
