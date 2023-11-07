@@ -5,7 +5,7 @@
 - ColorAnalyze : 色彩分析參數
 - Functions    : 引用方法
 - Class        : 訓練用總資料集
-##資料結構
+## 資料結構
 
 ```mermaid
 %%{
