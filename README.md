@@ -22,6 +22,42 @@
 
 ---
 
+> 研究系統架構
+	> Flow Chart
+		```mermaid
+			%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': 'true', 
+      'background':'#202020',
+      'primaryColor': '#233B48',
+      'primaryTextColor': '#fff',
+      'primaryBorderColor': '#ADC6CD',
+      'lineColor': '#ADC6CD',
+      'secondaryColor': '#000',
+			'secondaryTextColor': '#000',
+      'tertiaryColor': '#1C1C1C'
+    }
+  }
+}%%
+graph LR
+subgraph 影像處理
+Input(原始影像) --> SLIC(超級像素處理)
+SLIC --> SP(超級像素)
+end
+
+subgraph 訓練與辨識
+SP .-> |標記| Net(神經網路)
+SP --> |提取超級像素| Net
+end
+
+
+subgraph 超級像素類別
+Net --> Output(輸出)
+end
+		```
+
 
 
 ```mermaid
