@@ -161,7 +161,7 @@ PL --> Conv#C_1 --> Conv#5 --> FC
 PL --> MaxP#3 --> Conv#D_1 --> FC
 ```
 
-#SLIC
+# SLIC
 ```mermaid
 %%{
   init: {
