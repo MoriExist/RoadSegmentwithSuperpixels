@@ -22,10 +22,10 @@
 
 ---
 
-> 研究系統架構
-	> Flow Chart
-		```mermaid
-			%%{
+# 研究系統架構
+## Flow Chart
+```mermaid
+%%{
   init: {
     'theme': 'base',
     'themeVariables': {
@@ -56,7 +56,7 @@ end
 subgraph 超級像素類別
 Net --> Output(輸出)
 end
-		```
+```
 
 
 
