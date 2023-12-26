@@ -16,13 +16,21 @@ for i = 1:size(class{cName},1)
 end
 
 figure;imshow(outputImage)
-Gray=rgb2gray(A);
 roi=~logical(rgb2gray(outputImage));
-Mask=Gray(roi);
-
-RP_R=A(:,:,1); RP_G=A(:,:,2); RP_B=A(:,:,3);
-
-
-RP_R(roi)=Mask;RP_G(roi)=Mask; RP_B(roi)=Mask;
-im_new(:,:,1)=RP_R;im_new(:,:,2)=RP_G; im_new(:,:,3)=RP_B;
-figure;imshow(im_new)
+Mask=A(roi);
+%%
+[m,n]=size(roi);
+z=zeros(m,n);
+roiRed=uint8(cat(3,~roi,z,z).*255);
+figure;imshow(~roi)
+BW=bwperim(~roi,8);
+nHood = [0 0 1 0 0; ...
+             0 0 1 0 0; ...
+             1 1 1 1 1; ...
+             0 0 1 0 0; ...
+             0 0 1 0 0; ];
+BW = imdilate(BW, nHood);
+figure;imshow(roiRed)
+figure;imshow(imoverlay(roi, BW, 'r'))
+AugmentedImage = imoverlay(A + roiRed * 0.55, BW, 'red');
+figure; imshow(AugmentedImage)
