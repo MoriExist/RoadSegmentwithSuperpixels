@@ -1,3 +1,6 @@
+# 詳細說明
+https://positive-punch-cab.notion.site/Code-62c98beff58542739f9ef9894fde4647?pvs=4
+
 # Folder
 - SceneData    : 場景影像
 - n            : 切割區塊暫存區
